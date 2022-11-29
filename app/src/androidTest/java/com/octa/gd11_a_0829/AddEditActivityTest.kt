@@ -12,7 +12,6 @@ import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
-import kotlinx.coroutines.delay
 import org.hamcrest.Description
 import org.hamcrest.Matcher
 import org.hamcrest.Matchers.`is`
@@ -99,7 +98,7 @@ class AddEditActivityTest {
             )
         )
 
-        textInputEditText2.perform(scrollTo(), replaceText("200710829"), closeSoftKeyboard())
+        textInputEditText2.perform(scrollTo(), replaceText("1"), closeSoftKeyboard())
 
         val materialButton3 = onView(
             allOf(
@@ -142,7 +141,7 @@ class AddEditActivityTest {
                     allOf(
                         withId(R.id.ll_button),
                         childAtPosition(
-                            withClassName(`is`("androidx.constraintLayout.widget/.ConstraintLayout")),
+                            withClassName(`is`("androidx.constraintlayout.widget.ConstraintLayout")),
                             1
                         )
                     ),
@@ -175,7 +174,7 @@ class AddEditActivityTest {
                     allOf(
                         withId(R.id.ll_button),
                         childAtPosition(
-                            withClassName(`is`("androidx.constraintLayout.widget/.ConstraintLayout")),
+                            withClassName(`is`("androidx.constraintlayout.widget.ConstraintLayout")),
                             1
                         )
                     ),
@@ -191,7 +190,6 @@ class AddEditActivityTest {
     private fun childAtPosition(
         parentMatcher: Matcher<View>, position: Int
     ): Matcher<View> {
-
         return object : TypeSafeMatcher<View>() {
             override fun describeTo(description: Description) {
                 description.appendText("Child at position $position in parent ")
@@ -205,6 +203,7 @@ class AddEditActivityTest {
             }
         }
     }
+
     fun waitFor(delay : Long): ViewAction? {
         return object  : ViewAction {
             override fun getConstraints(): Matcher<View> {

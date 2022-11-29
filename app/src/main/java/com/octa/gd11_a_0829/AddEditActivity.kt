@@ -123,7 +123,7 @@ class AddEditActivity : AppCompatActivity() {
 
     private fun createMahasiswa() {
         // Fungsi untuk menambah data mahasiswa.
-        setLoading(true)
+        setLoading(false)
 
         if (etNama!!.text.toString().isEmpty()) {
             Toast.makeText(this@AddEditActivity, "Nama tidak boleh kosong!", Toast.LENGTH_SHORT)
